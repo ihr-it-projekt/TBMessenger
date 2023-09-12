@@ -11,6 +11,13 @@ class TBMActionGiveNumber: ActionInteractBase
         m_ConditionTarget = new CCTMan;
         m_ConditionItem = new CCINone;
     }
+	
+	override bool ActionCondition( PlayerBase player, ActionTarget target, ItemBase item ) //condition for action
+	{
+		PlayerBase targetPlayer = PlayerBase.Cast(target.GetObject());
+		
+		return targetPlayer && targetPlayer.IsPlayer();
+	}
 
     override string GetText()
     {

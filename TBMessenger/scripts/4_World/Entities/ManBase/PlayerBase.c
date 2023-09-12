@@ -109,7 +109,6 @@ modded class PlayerBase
             return false;
         }
 
-
         if (!GetConfig().messageConfig.mustHavePersonalRadio) return true;
 
         array<EntityAI> radios = GetItemsByTypeFromInventory("PersonalRadio");
@@ -128,7 +127,11 @@ modded class PlayerBase
 						if (itemCast && itemCast.GetQuantity() > 0) {
 							float energy = itemCast.GetCompEM().GetEnergy();
 							
-							if (energy > 0) return true;
+							if (energy > 0) {
+							    if (!GetConfig().messageConfig.radioMustBeOn) return true;
+								
+							    if (radio.GetCompEM().IsSwitchedOn()) return true;
+							}
 						}                        
                     }
                 }

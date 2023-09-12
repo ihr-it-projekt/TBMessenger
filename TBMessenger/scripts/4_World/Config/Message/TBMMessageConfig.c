@@ -3,6 +3,7 @@ class TBMMessageConfig
 	string version = "1";
     bool mustHavePersonalRadio = true;
     bool radioMustHaveBattery = true;
+    bool radioMustBeOn = true;
     bool showOnlinePlayersInMessageMenu = true;
     ref array<ref string> canSendToAll;
 
@@ -13,6 +14,12 @@ class TBMMessageConfig
             radioMustHaveBattery = true;
             showOnlinePlayersInMessageMenu = true;
             canSendToAll = new array<ref string>;
+            Save();
+        }
+
+        if (version == "1") {
+            version = "2";
+            radioMustBeOn = true
             Save();
         }
     }
