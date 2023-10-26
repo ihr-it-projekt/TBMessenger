@@ -42,15 +42,15 @@ class TBMMessage: TBMIdModel
         GetGame().RPCSingleParam(null, DAY_Z_LIFE_SEND_MESSAGE_SERVER, new Param1<ref TBMMessage>(this), true, _receiver);
     }
 
-    void CreateAnswer(PlayerBase sender, string receiver, string text, TBMMessage replayedMessage) {
-        this.sender = sender.GetIdentity().GetName();
-        this.senderId = sender.GetIdentity().GetId();
-        this.receiver = receiver;
+    void CreateAnswer(PlayerBase _sender, string _receiver, string _text, TBMMessage _replayedMessage) {
+        this.sender = _sender.GetIdentity().GetName();
+        this.senderId = _sender.GetIdentity().GetId();
+        this.receiver = _receiver;
         this.type = TYPE_PRIVATE;
-        this.text = text;
+        this.text = _text;
         this.SetId();
         this.date = new TBMDate;
-        this.replayedMessage = replayedMessage.text;
+        this.replayedMessage = _replayedMessage.text;
 
         Save();
     }

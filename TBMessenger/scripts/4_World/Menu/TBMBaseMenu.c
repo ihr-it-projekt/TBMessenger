@@ -25,12 +25,12 @@ class TBMBaseMenu: UIScriptedMenu
         this.player = _player;
     }
 
-    void UpdatePlayer(PlayerBase player) {
-        SetPlayer(player);
+    void UpdatePlayer(PlayerBase _player) {
+        SetPlayer(_player);
     }
 
-    void SetConfig(ref TBMConfig config) {
-        this.config = config;
+    void SetConfig(ref TBMConfig _config) {
+        this.config = _config;
     }
 
     void HandleEventsTBM(PlayerIdentity sender, Object target, int rpc_type, ParamsReadContext ctx) {

@@ -19,7 +19,7 @@ class TBMMessageConfig
 
         if (version == "1") {
             version = "2";
-            radioMustBeOn = true
+            radioMustBeOn = true;
             Save();
         }
     }
