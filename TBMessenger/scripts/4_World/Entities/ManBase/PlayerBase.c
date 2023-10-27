@@ -1,7 +1,7 @@
 modded class PlayerBase
 {
-    private ref TBMMessageMenu messageMenu;
-    private ref TBMMessageSystemMenu messageSystemMenu;
+    private ref TBMMessageMenu tbm_messageMenu;
+    private ref TBMMessageSystemMenu tbm_messageSystemMenu;
 
 	private string playerUID;
 
@@ -21,14 +21,14 @@ modded class PlayerBase
 	
     void DisplayMessage(string message) {
         GetMessageMenu();
-        messageMenu.SetText(message);
-        messageMenu.Init();
-        messageMenu.Show();
+        tbm_messageMenu.SetText(message);
+        tbm_messageMenu.Init();
+        tbm_messageMenu.Show();
     }
 
     void UpdatePlayerAtDependencies() {
-        if (messageSystemMenu && messageSystemMenu.IsVisible()) {
-            messageSystemMenu.UpdatePlayer(this);
+        if (tbm_messageSystemMenu && tbm_messageSystemMenu.IsVisible()) {
+            tbm_messageSystemMenu.UpdatePlayer(this);
         }
     }
 
@@ -38,27 +38,27 @@ modded class PlayerBase
     }
 
 	TBMMessageMenu GetMessageMenu() {
-		messageMenu = new TBMMessageMenu();
-		return messageMenu;
+		tbm_messageMenu = new TBMMessageMenu();
+		return tbm_messageMenu;
 	}
 
 	TBMMessageSystemMenu GetMessageSystemMenu() {
-		messageSystemMenu = new TBMMessageSystemMenu();
-		InitMenu(messageSystemMenu);
-		return messageSystemMenu;
+		tbm_messageSystemMenu = new TBMMessageSystemMenu();
+		InitMenu(tbm_messageSystemMenu);
+		return tbm_messageSystemMenu;
 	}
 
 	void RefreshMessageSystem() {
-	    if (messageSystemMenu) {
-	        messageSystemMenu.RefreshMessageSystem();
+	    if (tbm_messageSystemMenu) {
+	        tbm_messageSystemMenu.RefreshMessageSystem();
 	    }
 	}
 
 	bool CloseMenu() {
 	    bool hasDoAction = false;
 
-		if (messageSystemMenu && messageSystemMenu.IsVisible()) {
-		    messageSystemMenu.OnHide();
+		if (tbm_messageSystemMenu && tbm_messageSystemMenu.IsVisible()) {
+		    tbm_messageSystemMenu.OnHide();
 			hasDoAction = true;
 		}
 		

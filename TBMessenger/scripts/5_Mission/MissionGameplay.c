@@ -3,13 +3,13 @@ modded class MissionGameplay
     private bool holdLControl = false;
 	private bool holdOne = false;
 
-	private ref TBMPlayerEventListener playerEventListener;
+	private ref TBMPlayerEventListener tbm_playerEventListener;
 	private ref TBMMessageDB messageDB;
    	PlayerBase tbmPlayerBase;
 
 	override void OnInit() {
 		super.OnInit();
-		playerEventListener = new TBMPlayerEventListener;
+		tbm_playerEventListener = new TBMPlayerEventListener;
 		messageDB = new TBMMessageDB;
 		TBMPlayerClientDB.Get();
 		GetGame().RPCSingleParam(TBMPlayerBaseHelper.GetPlayer(), DAY_Z_LIFE_EVENT_GET_CONFIG, null, true);
