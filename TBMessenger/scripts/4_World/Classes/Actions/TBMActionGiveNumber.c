@@ -16,7 +16,7 @@ class TBMActionGiveNumber: ActionInteractBase
 	{
 		PlayerBase targetPlayer = PlayerBase.Cast(target.GetObject());
 		
-		return targetPlayer && targetPlayer.IsPlayer();
+		return targetPlayer && targetPlayer.GetIdentity();
 	}
 
     override string GetText()
